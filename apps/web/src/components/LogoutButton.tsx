@@ -1,0 +1,13 @@
+"use client";
+import { useState } from "react";
+
+export default function LogoutButton() {
+  const [busy, setBusy] = useState(false);
+  return (
+    <button className="btn ghost" disabled={busy} onClick={async () => {
+      setBusy(true);
+      await fetch("/api/auth/logout", { method: "POST" }).catch(() => undefined);
+      window.location.href = "/login";
+    }}>تسجيل الخروج</button>
+  );
+}

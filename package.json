@@ -1,0 +1,24 @@
+{
+  "name": "dronex-gmail",
+  "private": true,
+  "workspaces": ["packages/*", "apps/*"],
+  "scripts": {
+    "typecheck": "npm run typecheck --workspaces --if-present",
+    "lint": "eslint .",
+    "test": "vitest run",
+    "build": "npm run build -w @dronex/web",
+    "db:migrate": "tsx scripts/migrate.ts",
+    "bot:register": "npm run register -w @dronex/bot",
+    "bot:start": "npm run start -w @dronex/bot",
+    "web:dev": "npm run dev -w @dronex/web"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.0.0",
+    "@types/node": "^22.0.0",
+    "eslint": "^9.0.0",
+    "tsx": "^4.19.0",
+    "typescript": "^5.6.0",
+    "typescript-eslint": "^8.0.0",
+    "vitest": "^3.0.0"
+  }
+}
